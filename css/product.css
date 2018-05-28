@@ -1,0 +1,588 @@
+/*----------产品图片----------*/
+#productImg{
+	width: 1090px;
+	margin: 0 auto;
+}
+#productImg div.left{
+	width: 530px;
+}
+#productImg img.left{
+	width: 428px;
+	height: 428px;
+	border: 1px solid #E8E8E8;
+}
+#productImg .smallImg{
+	width: 78px;
+	height: 430px;
+	display: flex;
+	flex-wrap: wrap;		/*换行显示*/
+	align-content: space-between;		/*两边对齐*/
+}
+#productImg .smallImg img{
+	width: 78px;
+	height: 78px;
+	border: 1px solid #E8E8E8;
+	cursor: pointer;		/*鼠标悬停指针变为手*/
+	box-sizing: border-box;		/*怪异盒模型*/
+}
+#productImg .smallImg img:hover,#productImg .smallImg img.active{
+	border: 2px solid #B4A078;
+}
+
+#productImg .info{
+	width: 510px;
+}
+#productImg .info h2{
+	font: bold 20px/20px "微软雅黑";
+}
+#productImg .info p{
+	font: 12px/56px "微软雅黑";
+	color: #999;
+}
+#productImg .price{
+	background: #f5f3ef;
+	border: 1px dotted #dedede;
+	padding: 15px 0;
+	line-height: 28px;
+}
+#productImg .price span{
+	padding-left: 10px;
+	margin-right: 30px;
+	font-size: 12px;
+	color: #666;
+}
+#productImg .price strong{
+	font: bold 22px/22px "微软雅黑";
+	color: #d7282d;
+}
+#productImg .price a.tag{
+	display: inline-block;
+	font: 12px/18px "微软雅黑";
+	color: #fff;
+	background: #d7282d;
+	padding: 0 10px;
+	margin-right: 10px;
+}
+#productImg .price a.discount{
+	font-size: 12px;
+	color: #d7282d;
+	text-decoration: underline;
+}
+#productImg .price a.service{
+	display: inline-block;
+	font-size:12px;
+	color: #666;
+}
+#productImg .price a.service:hover{
+	text-decoration: underline;
+}
+#productImg .price i{
+	font-weight: bold;
+	display: inline-block;
+	width: 3px;
+	height: 28px;
+	vertical-align: bottom;
+	background: url(../images/ico_15.gif) center center no-repeat;
+	margin: 0 5px 0 15px;
+}
+#productImg .price i:nth-child(1){
+	margin-left: 0;
+}
+#productImg .format dl,#productImg .number{
+	height: 32px;
+	line-height: 32px;
+	color: #666;
+	font-size: 12px;
+	margin: 20px 0;
+	padding-left: 10px;
+}
+#productImg .format dt{
+	float: left;
+	margin-right: 30px;
+}
+#productImg .format dd{
+	height: 32px;
+	float: left;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	margin-right: 10px;
+	cursor: pointer;
+	box-sizing: border-box;		/*只设置了高度，宽度由内容撑开。设置这条样式只能让高度保持不变*/
+}
+#productImg .format dd.active{
+	border: 2px solid #B4A078;
+	padding: 0 9px;		/*边框变宽了，所以减少 padding 值，使总宽度不变*/
+	background: url(../images/ico_16.gif) right bottom no-repeat;
+}
+#productImg .format dd.noclick{		/*不可点击的按钮样式*/
+	cursor: not-allowed;
+	opacity: .5;
+	border: 1px dashed #e4e4e4;
+}
+#productImg .number *{		/*表示 #productImg .number 下的所有元素*/
+	float: left;
+	font: 12px/28px "微软雅黑";
+}
+#productImg .number .nTitle{
+	margin-right: 30px;
+}
+#productImg .number div span{
+	width: 35px;
+	border: 1px solid #ddd;
+	font-size: 20px;
+	color: #999;
+	cursor: pointer;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+#productImg .number div input{
+	width: 60px;
+	height: 28px;
+	border-color: #ddd;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+	outline: none;		/*去掉输入框获取焦点时的发光边框*/
+	-webkit-user-select: none;		/*连续点击时阻止选中*/
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+/*#productImg div.noClick{
+	opacity: 0.5;
+}*/
+/*这么长的选择器是为了提升优先级，因为前面设置过该元素的样式*/
+#productImg div.noClick span,#productImg div.noClick input,#productImg div span.noClick{
+	cursor: not-allowed;		/*改变鼠标指针为不可点击*/
+	opacity: 0.5;
+}
+#productImg .btn{
+	font-size: 0;
+}
+#productImg .btn a{
+	display: inline-block;
+	width: 168px;
+	line-height: 48px;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+#productImg .btn a.buy{
+	color: #B4A078;
+	border: 1px solid #B4A078;
+	background: #F5F3EF;
+	border-radius: 2px;
+}
+#productImg .btn a.buy:hover{
+	background: #fff;
+}
+#productImg .btn a.join{
+	color: #fff;
+	text-indent: 40px;
+	margin: 0 10px;
+	border: 1px solid #B4A078;
+	border-radius: 2px;
+	background: #B4A078 url(../images/join_bg.gif) no-repeat 25px 13px;
+}
+#productImg .btn a.join:hover{
+	opacity: 0.8;
+}
+#productImg .btn a.collection{
+	width: 48px;
+	height: 18px;
+	line-height: 14px;
+	padding-top: 30px;
+	font-size: 14px;
+	color: #999;
+	border: 1px solid #ccc;
+	background: url(../images/collection_bg.gif) no-repeat center 6px;
+}
+
+
+
+/*----------大家都在看----------*/
+#look{
+	margin: 20px auto;
+}
+#look .center{
+	border: 1px solid #e8e8e8;
+}
+#look h3{
+	font: bold 18px/44px "微软雅黑";
+	background: #f5f5f5;
+	text-indent: 20px;
+}
+#look .content{
+	position: relative;
+}
+#look .carouselImgCon{
+	position: relative;
+	height: 250px;
+	padding-bottom: 20px;
+	margin: 0 80px;
+	overflow: hidden;
+}
+#look ul{
+	width: 1920px;
+	position: absolute;
+	left: 0;	
+}
+#look ul li{
+	width: 210px;
+	float: left;
+	text-align: center;
+	margin-right: 30px;
+}
+#look ul li img{
+	width: 210px;
+	height: 210px;
+}
+#look ul li a{
+	font: bold 12px/12px "微软雅黑";
+	display: block;
+}
+#look ul li span{
+	font: 12px/12px "微软雅黑";
+	color: #d4282d;
+	margin-top: 16px;
+}
+/*轮播图左右按钮*/
+/*轮播图左右按钮的主体样式放在 common.css 里，不同的地方在这里覆盖添加*/
+#look .prev,#look .next{
+	width: 30px;
+	height: 30px;
+	background: #d1c5af;
+	font: 14px/30px "微软雅黑";
+}
+#look .prev:hover,#look .next:hover{
+	background: #B4A078!important;
+}
+#look .prev{
+	left: 20px;
+	background: #dddddd;
+}
+#look .next{
+	right: 20px;
+}
+
+/*下面的两个样式是为了设置不能点击时候的颜色（可能会用得到）*/
+/*可以添加 class，也可以直接设置背景色*/
+#look div.noClick{
+	background: #ddd;
+}
+#look div.noClick:hover{
+	background: #ddd;
+}
+
+
+
+/*----------详情评价专题推荐---------*/
+/*详情里的样式*/
+#bottom{
+	margin-bottom: 80px;
+}
+#bottom .product{
+	float: left;
+	width: 750px;
+}
+#bottom .title{
+	height: 42px;
+	line-height: 42px;
+	border: 1px solid #e8e8e8;
+	background: #f5f5f5;
+}
+#bottom .title a{
+	display: inline-block;
+	width: 169px;
+	text-align: center;
+	border-right: 1px solid #e8e8e8;
+}
+#bottom .title .active{
+	background: #fff;
+	line-height: 41px;
+	margin-top: -1px;		/*这里的设置有个小技巧：上面的样式设置了父级的高度（42px）与边框（1px），同时为了让文字居中，让文字行高与容器高度一样。但是 active 时，子级的上边框宽度变为 3px（父级上下边框各 1px），如果此时行高仍然为原来的行高，那么子级的内容会超出父级显示，为了让显示内容的总高度保持为原来的高度（也就是不能让子级的内容超出父级显示），所以需要从其它地方减去 1px，同时还需要调整子级位置。把子级行高设置为少 1px，也就是 41px，然后 margin-top: -1px; 让子级向上移动 1px，这样的话，子级带边框的高度刚好等于父级带边框的高度，而且覆盖了父级的上下边框。*/
+	border-top: 3px solid #B4A078;
+}
+#bottom .title span{
+	color: #B4A078;
+}
+/*.content 下的第一层 div*/
+/*#bottom .content>div{		
+	display: none;
+}*/
+#bottom table{
+	width: 100%;
+	margin: 30px auto;
+}
+#bottom td{
+	height: 40px;
+	border-bottom: 1px dashed #e8e8e8;
+}
+#bottom td:nth-of-type(odd){
+	width: 135px;
+	text-indent: 30px;
+}
+#bottom td:nth-of-type(even){
+	width: 240px;
+	color: #999;
+}
+/*图片是放在 p 标签里，图片懒加载*/
+#bottom .img p{
+	/*height: 200px;*/
+	height: auto;
+	background: #fff url(../images/original.png) no-repeat center;
+}
+#bottom .problem{
+	margin: 80px 0;
+}
+#bottom .problem h3{
+	font-size: 18px;
+	background: #f5f5f5;
+	text-align: center;
+	line-height: 52px;
+}
+#bottom .problem dl{
+	margin-top: 30px;
+}
+#bottom .problem dt{
+	margin-bottom: 10px;
+}
+#bottom .problem dd{
+	color: #999;
+}
+
+/*评价里的样式*/
+#bottom div.evaluate{		/*初始时让评价选项卡隐藏*/
+	display: none;
+}
+#bottom .border{
+	border: 1px solid #e8e8e8;
+	border-top: none;
+	padding: 14px 14px 0 14px;
+}
+#bottom .eTitle{
+	border-bottom: 1px solid #eaeaea;
+}
+#bottom .eTitle div{
+	float: left;
+	padding: 15px 0;
+	margin-right: 20px;
+	cursor: pointer;		/*鼠标悬停指针变为手指*/
+}
+#bottom .eTitle i{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+	margin-right: 10px;
+	background: url(../images/input_bg.png) no-repeat 0 -15px;
+}
+#bottom .eTitle span{
+	vertical-align: middle;
+}
+#bottom .eTitle .active i{
+	background: url(../images/input_bg.png) no-repeat 0 0px;
+}
+#bottom .eTitle .active span{
+	color: #B4A078;
+}
+
+#bottom .evaluate li{
+	border-bottom: 1px dashed #e8e8e8;
+	padding: 30px 0;
+	overflow: hidden;		/*此处作用是清除浮动*/
+}
+#bottom .evaluate li:last-child{
+	border: none;		/*最后一条评论不需要底边框*/
+}
+#bottom .evaluate li li{
+	padding: 0;
+	border: none;
+	float: left;
+}
+
+#bottom .avatar{
+	float: left;
+	width: 90px;
+	text-align: center;
+}
+#bottom .avatar img{
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin: 0 auto 14px auto;
+}
+#bottom .vip1{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 6px;
+	background: url(../images/vip.gif) no-repeat 0 0;
+}
+#bottom .avatar span{
+	vertical-align: middle;
+	font-size: 12px;
+}
+#bottom .text{
+	float: left;
+	width: 630px;
+	padding-top: 18px;
+}
+#bottom .text p{
+	line-height: 20px;
+}
+#bottom .smallImg{
+	margin: 15px 0;
+}
+#bottom .smallImg span{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	margin-right: 10px;
+}
+#bottom .smallImg img{
+	width: 60px;
+	height: 60px;
+}
+#bottom .color{
+	font-size: 12px;
+	color: #9f9f9f;
+	line-height: 16px;
+	margin: 15px 0 10px 0;
+}
+#bottom .dialog{
+	border: 1px solid #e8e8e8;
+	background: #f5f5f5;
+	position: relative;
+	transition: 0.3s;
+	overflow: hidden;
+	height: 0;
+	opacity: 0;		/*设置高度、透明度为 0，初始让其隐藏。改变值后有个渐变的动画效果*/
+	/*height: 510px;*/
+}
+#bottom .carouselImgCon{
+	position: relative;
+	width: 584px;
+	height: 438px;
+	margin: 50px auto 20px auto;
+	overflow: hidden;
+}
+#bottom .carouselImgCon ul{
+	position: absolute;
+	left: 0;
+	width: 2000px;
+	/*transition: .3s;*/
+}
+#bottom .carouselImgCon img{
+	width: 584px;
+	height: 438px;
+}
+#bottom .dialog .close{
+	width: 25px;
+	height: 25px;
+	font-size: 25px;
+	color: #ccc;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+#bottom .dialog .close:hover{
+	color: #999;
+}
+/*轮播图左右按钮*/
+/*轮播图左右按钮的主体样式放在 common.css 里，不同的地方在这里覆盖添加*/
+#bottom .prev,#bottom .next{
+	width: 48px;
+	height: 48px;
+	border-radius: 0;
+	line-height: 48px;
+	font-size: 20px;
+	background: #b0b0b0;
+	margin-top: -24px;
+}
+#bottom .prev{
+	left: 30px;
+}
+#bottom .next{
+	right: 30px;
+}
+#bottom .prev:hover,#bottom .next:hover{
+	background: #848484;
+}
+
+/*翻页样式*/
+#bottom .page{
+	text-align: right;		/*让子元素居右显示*/
+	margin-top: 20px;
+	font-size: 0;
+}
+#bottom .page div{
+	display: inline-block;
+}
+#bottom .page span{
+	display: inline-block;
+	font-size: 12px;
+	padding: 7px 10px;
+	border: 1px solid #e6e6e6;
+	border-left: none;
+	cursor: pointer;
+}
+#bottom .page span:first-child{
+	border-left: 1px solid #e6e6e6;
+}
+#bottom .page span:hover{
+	color: #B4A078;
+}
+#bottom .page span.active{
+	background: #B4A078;
+	color: #fff;
+	border-color: #B4A078;
+	/*border: none;
+	padding: 8px 11px 8px 10px;*/
+}
+#bottom .page span.active:hover{
+	opacity: 0.9;
+}
+
+
+
+/*----------专题推荐---------*/
+#bottom .special{
+	width: 298px;
+	border: 1px solid #e8e8e8;
+	float: right;
+}
+#bottom .special h3{
+	font: bold 18px/41px "微软雅黑";
+	text-align: center;
+	background: #f5f5f5;
+	border-bottom: 1px solid #e8e8e8;
+}
+#bottom .special div{
+	width: 260px;
+	margin: 0 auto;
+	position: relative;
+	margin-bottom: 20px;
+}
+#bottom .special div:nth-of-type(1){
+	margin-top: 20px;
+}
+#bottom .special div a:nth-child(2){		/*找到 div 下的第二个 a 标签*/
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background: rgba(0,0,0,0.7);
+	color: #fff;
+	font: 14px/30px "微软雅黑";
+}
+
+
+
