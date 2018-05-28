@@ -1,0 +1,835 @@
+/*初始化样式（样式重置）*/
+body,h1,h2,h3,h4,h5,h6,p,dl,dd{
+	margin: 0;
+}
+body{
+	/*设置默认字体大小、颜色、字体*/
+	font-size: 14px;
+	color: #333;
+	font-family: "微软雅黑";
+}
+ul,ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	border: none;		/*图片在 IE 下默认会带有边框*/
+	vertical-align: middle;		/*设置图片默认对齐方式为居中对齐*/
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+a:hover{
+	color: #b4a078;
+}
+input{
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+label{
+	vertical-align: middle;
+}
+table{
+	border-collapse: collapse;		/*清除表格单元格之间的间隙*/
+}
+th,td{
+	padding: 0;
+}
+
+/*写一些常用的 class*/
+/*页面中的各块内容大多是居中显示在页面里，所以可以提前设置一个 .center*/
+.center{
+	width: 1090px;
+	margin: 0 auto;
+}
+/*浮动和清除浮动 class*/
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+}
+/*图片放大动画效果*/
+/*这里是把图片放到父级下*/
+.scaleImg img{
+	transition: 1s ease-out;		/*设置运动时间、方式*/
+	transform: scale(1);		/*设置初始样式*/
+}
+.scaleImg:hover img{
+	transform: scale(1.1);		/*设置鼠标悬停时图片样式*/
+}
+/*设置图片懒加载默认背景*/
+.original{
+	background: #f4f4f4 url(../images/original.png) no-repeat center;		/*背景色，背景图片，居中显示，不重复平铺*/
+}
+
+
+/*----------头部----------*/
+#head{
+	border-bottom: 1px solid #f3f3f3;
+	box-shadow: 0 2px 2px #f3f3f3;
+}
+#head .head{
+	background: #333333;
+	font-size: 12px;
+	line-height: 36px;
+}
+#head .left{
+	color: #ccc;
+}
+
+#head .head li{
+	float: left;
+	position: relative;		/*子级下拉菜单绝对定位，父级相对定位*/
+	z-index: 2;		/*通过给弹窗父级设置高层级，避免让后面的内容遮住弹窗*/
+}
+#head .head li a{
+	color: #ccc;
+	padding: 0 10px;
+	border-left: 1px solid #5c5c5c;
+}
+#head .head li a:hover{
+	color: #fff;
+}
+#head .head li a.noborder{		/*这里的选择器不能直接写 .noborder，因为这样写的话，优先级不够，不会生效（与上面优先级高的选择器设置的样式发生冲突）*/
+	border: none;
+}
+#head .margin{		/*这里的选择器可以直接写 .margin（这里写 #head .margin 是为了避免与其它位置代码发生冲突），与上面的区别在于，这里虽然优先级也不够，但是设置的样式是第一次设置，并没有与优先级高的选择器的样式发生冲突*/
+	margin-right: 10px;
+}
+#head .customer{
+	padding-right: 10px;
+	margin-right: 10px;
+	background: url(../images/customer_bg1.gif) no-repeat 68px center;
+}
+#head .customer:hover{
+	background: url(../images/customer_bg2.gif) no-repeat 68px center;
+}
+#head .customer:hover ul{
+	display: block;
+}
+#head .customer ul{
+	position: absolute;		/*子级下拉菜单绝对定位*/
+	border: 1px solid #ddd;
+	background: #fff;		/*背景默认是透明的，需要给一个背景色*/
+	box-shadow: 0 0 3px rgba(0,0,0,.2);		/*这里写 .2 和 0.2 都可以*/
+	display: none;
+}
+/*通过伪类的方法在元素边框周围添加“三角形”、“箭头”等小图案*/
+/*多个需要用到相同小图案的地方可以共用这个样式*/
+#head .customer ul:before,#head .down div:before{
+	width: 10px;
+	height: 6px;
+	content: '';
+	display: block;
+	background: url(../images/ico_02.png);
+	position: absolute;		/*通过定位的方式改变小图案的位置*/
+	margin: auto;		/*居中的一种方法，margin 值设为 auto，定位置设置为 0*/
+	left: 0;
+	right: 0;
+	top: -6px;
+}
+#head .customer ul li{
+	float: none;
+}
+#head .customer ul a{
+	display: block;
+	padding: 0;
+	border-left: none;
+	border-bottom: 1px solid #ddd;		/*底边框是 a 标签而不是它的父级 li 标签的，因为如果是 li 的，那么底边框会铺满整个父级*/
+	text-align: center;
+	margin: 0 10px;
+	color: #999;
+}
+#head .customer ul a:hover{
+	color: #b4a078;
+}
+#head .customer ul a.noborder{
+	border-bottom: none;
+}
+#head .customer li.phone{
+	background: url(../images/phone_bg1.gif) no-repeat 62px center;
+}
+#head .customer li.phone:hover{
+	background: url(../images/phone_bg2.gif) no-repeat 62px center;
+}
+#head .customer li.phone:hover div{
+	display: block;
+}
+#head .customer li.phone div{
+	position: absolute;
+	width: 110px;
+	height: 57px;
+	right: -110px;
+	top: 0;
+	line-height: 20px;
+	background: #fff;
+	text-align: center;
+	box-shadow: 0 0 3px rgba(0,0,0,.2);
+	display: none;
+	z-index: 2;
+}
+#head .customer li.phone div p:nth-child(1){
+	font-size: 14px;
+	color: #999;
+	margin-top: 12px;
+}
+#head .customer li.phone div p:nth-child(2){
+	color: #ccc;
+}
+
+#head .head .down a{
+	padding-left: 25px;
+	background: url(../images/ico_01.png) no-repeat 10px center;
+}
+#head .down div{
+	position: absolute;
+	left: -46px;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+	padding: 10px;
+	line-height: 20px;
+	color: #b4a078;
+	background: #fff;
+	display: none;
+}
+#head .down:hover div{
+	display: block
+}
+
+
+
+/*----------搜索----------*/
+.search{
+	margin: 40px 0;
+}
+.search .center{
+	position: relative;
+	height: 60px;
+}
+.search h1{
+	position: absolute;
+	left: 50%;
+	margin-left: -90px;		/*居中的一种方法：设置定位值为 50%，然后在将对应方向的 margin 值设置负的元素宽度的一半*/
+}
+.searchBox{
+	height: 25px;
+	margin: 16px 40px 0 0;
+	font-size: 0;		/*去除子级元素换行产生的空隙*/
+}
+.searchBox input{
+	width: 250px;
+	height: 24px;
+	line-height: 24px;
+	border: none;
+	border-bottom: 1px solid #d8cebc;
+	color: #b4a078;
+	outline: none;		/*去除获取焦点的默认边框高亮样式*/
+	font-size: 12px;
+}
+/*搜索图标*/
+.searchBox a{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../images/ico_03.gif);
+	vertical-align: middle;
+}
+
+
+
+/*----------导航----------*/
+.nav{
+	position: relative;
+	background: #fff;
+}
+.nav .center{
+	position: relative;
+}
+.nav .logo,.nav .login{
+	display: none;
+}
+.navBar,.nav .subNav{
+	text-align: center;
+	font-size: 0;
+}
+.navBar li{
+	display: inline-block;
+	font-size: 14px;
+	padding: 0 30px;
+	height: 50px;
+}
+.navBar li.separate{
+	padding: 0;
+	color: #ccc;
+}
+.navBar li a{
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+.navBar li a:hover,.navBar li.active a{
+	border-bottom: 3px solid #b4a078;
+}
+
+/*购物车父级样式*/
+.cartWrap{
+	position: absolute;
+	right: 0;
+	top: -80px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;		/*鼠标悬浮形状*/
+	background: url(../images/ico_04.gif);
+}
+.cartWrap i{
+	font: 12px/20px "微软雅黑";
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	color: #fff;
+	background: #d4282d;
+	min-width: 20px;		/*这里设置最小宽度而不是宽度是为了：商品数量为个位数时，显示为一个圆，商品数量很多，文字显示为 99+（JS 中设置）时，能让文字撑开宽度*/
+	height: 20px;
+	text-align: center;
+	border-radius: 50%;
+}
+/*购物车样式*/
+.cartWrap .cart{
+	display: none;
+	width: 328px;
+	border: 1px solid #b5a176;
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+	position: absolute;
+	top: 30px;
+	right: -22px;
+	background: #fff;
+	padding-top: 15px;
+	z-index: 10;		/*购物车要显示所有元素之上，所有给它一个很高的层级，避免被其它元素遮住*/
+}
+/*购物车小三角图标，边框显示一个小三角形状*/
+.cartWrap .cart:before{
+	content: '';
+	display: block;
+	width: 12px;
+	height: 8px;
+	background: url(../images/ico_17.gif);
+	position: absolute;
+	top: -8px;
+	right: 24px;
+}
+.cartWrap .list{
+	height: 244px;
+	position: relative;
+	overflow: hidden;
+}
+.cartWrap ul{
+	padding-left: 15px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.cartWrap li{
+	height: 60px;
+	margin-bottom: 10px;
+}
+.cartWrap .img{
+	float: left;
+}
+.cartWrap img{
+	width: 60px;
+	height: 60px;
+	background: #f4f4f4;
+}
+.cartWrap .message{
+	width: 145px;
+	float: left;
+	padding: 5px 0 5px 10px;
+	font: 12px/25px "微软雅黑";
+}
+.cartWrap .message p:nth-child(1){
+	text-overflow: ellipsis;		/*溢出、超出的文字显示省略号，需要配合 overflow 使用*/
+	overflow: hidden;
+	white-space: nowrap;		/*文字不换行*/
+}
+.cartWrap .message p:nth-child(2){
+	color: #c5c5c5;
+}
+.cartWrap .price{
+	float: left;
+	width: 55px;
+	padding-top: 5px;
+	font: 12px/25px "微软雅黑";
+	color: #b62628;
+	text-align: right;
+}
+.cartWrap .close{
+	float: left;
+	width: 26px;
+	font: 12px/25px "微软雅黑";
+	padding-top: 5px;
+	text-align: center;
+}
+/*购物车里滚动条的样式*/
+.cartWrap .scrollBar{
+	float: right;
+	width: 17px;
+	height: 244px;
+	background: #f1f1f1;
+}
+.scrollBar span{
+	display: block;
+	width: 17px;
+	height: 17px;
+}
+/*通过雪碧图来设置购物车滚动条按钮的不同状态*/
+.cartWrap .topBtn{
+	background: url(../images/topBtn_bg.gif) 0 0;
+}
+.cartWrap .topBtn:hover{
+	background: url(../images/topBtn_bg.gif) 0 -34px;
+}
+.cartWrap .topBtn:active{
+	background: url(../images/topBtn_bg.gif) 0 -51px;
+}
+.cartWrap .bottomBtn{
+	background: url(../images/bottomBtn_bg.gif) 0 0;
+}
+.cartWrap .bottomBtn:hover{
+	background: url(../images/bottomBtn_bg.gif) 0 -34px;
+}
+.cartWrap .bottomBtn:active{
+	background: url(../images/bottomBtn_bg.gif) 0 -51px;
+}
+.cartWrap .slideWrap{
+	height: 210px;
+	position: relative;
+}
+.cartWrap .slide{
+	width: 17px;
+	height: 50px;
+	background: #c1c1c1;
+	position: absolute;
+	top: 0;
+}
+.cartWrap .slide:hover{
+	background: #a9a9a9;
+}
+.cartWrap .slide:active{
+	background: #787878;
+}
+.cartWrap .total{
+	height: 66px;
+	background: #f4f0ea;
+	font: 12px/66px "微软雅黑";
+	text-align: center;
+}
+.cartWrap .total span{
+	color: #c04646;
+}
+.cartWrap .total a{
+	display: inline-block;
+	width: 110px;
+	height: 36px;
+	line-height: 36px;
+	background: #b4a078;
+	color: #fff;
+	margin-left: 20px;
+	border-radius: 2px;
+}
+.cartWrap .total a:hover{
+	opacity: .8;
+}
+
+
+/*弹出的导航样式（固定导航栏样式）*/
+.nav .subNav{
+	box-shadow: 0 6px 6px #ececec;
+	
+	position: absolute;		/*导航栏弹出菜单通过定位来实现，这样不会在菜单显示时将其它内容向下挤了*/
+	top: 50px;
+	z-index: 2;
+	background: #fff;
+	width: 100%;
+	transition: .3s opacity;
+}
+.nav .subNav .subs{
+	width: 1050px;		/*设置宽度是为了让 li 在居中的一定区域内显示，并且会换行*/
+	margin: 0 auto;
+}
+.nav .subNav ul{
+	display: none;
+	padding: 10px 0 20px 0;
+}
+.nav .subNav li{
+	float: left;
+	height: auto;
+	padding: 0 50px 30px 50px;
+	font-size: 14px;
+}
+.nav .subNav img{
+	display: block;
+	margin: 0 auto 10px auto;
+}
+.nav .subNav a{
+	font-weight: bold;
+}
+
+
+/*吸顶导航样式*/
+/*ID 是用来区分吸顶式导航栏和固定式导航栏*/
+#navFix{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	box-shadow: 0 2px 3px rgba(0,0,0,.2);
+	animation: navMove .3s;
+}
+/*吸顶导航栏动画效果：先完全隐藏（位置移动到窗口外），然后显示（移动到窗口内）*/
+@keyframes navMove{
+	0%{
+		top:-60px;
+	}
+	100%{
+		top:0;
+	}
+}
+#navFix .logo{
+	display: block;
+	float: left;
+	margin: 13px 40px 0 0;
+}
+#navFix .navBar{
+	float: left;
+}
+#navFix .navBar li:nth-last-child(1),#navFix .navBar li:nth-last-child(2),#navFix .navBar li:nth-last-child(3){
+	display: none;
+}
+#navFix .navBar li{
+	height: 60px;
+	line-height: 60px;
+	padding: 0 20px;
+}
+#navFix .login{
+	display: block;
+	float: right;
+	height: 60px;
+	line-height: 60px;
+}
+#navFix .login a{
+	margin-right: 20px;
+	font-size: 12px;
+	color: #666;
+}
+#navFix .cartWrap{
+	position: relative;
+	top: 20px;
+	float: right;
+}
+#navFix .subNav ul{
+	padding-top: 30px;
+}
+
+
+/*----------底部----------*/
+footer{
+	text-align: center;
+}
+footer .message{
+	background: #fff;
+	padding: 40px 0;
+	border-top: 1px solid #e8e8e8;
+}
+footer .message .center{
+	display: flex;
+}
+footer .message .box{
+	width: 360px;
+}
+footer .message .box h4{
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 30px;
+}
+footer .message .phone{
+	font-size: 26px;
+}
+footer .message .workTime{
+	margin: 20px 0 30px 0;
+}
+footer .message .btn a{
+	display: inline-block;
+	width: 100px;
+	line-height: 28px;
+	font-size: 14px;
+	border: 1px solid #666;
+	margin: 0 10px;
+}
+footer .message .btn a:hover{
+	color: #fff;
+	background: #666;
+}
+footer .message .box:nth-child(2){
+	border-left: 1px solid #e9e9e9;
+	border-right: 1px solid #e9e9e9;
+	padding: 0 30px;
+	width: 370px;
+}
+footer .message .box:nth-child(2) p{
+	text-align: left;
+}
+footer .message dl{
+	margin-top: 30px;
+	line-height: 32px;		/*让文字行高与图片高度一样，可以让它们居中对齐*/
+}
+footer .message dt{
+	float: left;
+}
+footer .message dd{
+	float: left;
+	margin-left: 18px;
+}
+footer .message .money{
+	color: #B4A078;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+footer .foot{
+	background: #414141;
+	min-width: 1090px;		/*设置最小宽度可以避免横向拖动滚动条时右侧空白的情况*/
+}
+footer .foot .title{
+	height: 51px;
+	line-height: 51px;
+	padding: 40px 0;
+	font-size: 18px;
+	color: #fff;
+	border-bottom: 1px solid #4f4f4f;
+	display: flex;
+	justify-content: space-around;
+}
+footer .foot .title div{
+	padding-left: 70px;
+}
+footer .foot .title div:nth-child(1){
+	background: url(../images/ico_08.gif) no-repeat left;
+}
+footer .foot .title div:nth-child(2){
+	background: url(../images/ico_09.gif) no-repeat left;
+}
+footer .foot .title div:nth-child(3){
+	background: url(../images/ico_10.gif) no-repeat left;
+}
+footer .foot .copy{
+	padding: 30px 0;
+	color: #999;	
+	line-height: 20px;
+}
+footer .foot .copy a{
+	color: #999;
+}
+
+
+/*----------侧边栏----------*/
+#sideBar{
+	width: 60px;
+	position: fixed;
+	bottom: 20px;
+	right: 1%;		/*这里的距离不是一个固定的值，而是百分比，避免屏幕分辨率不同时显示效果出现较大差异*/
+	text-align: center;
+	background: #fff;
+	z-index: 3;		/*提升侧边栏的层级，使它不会被页面中的其它元素遮住*/
+}
+#sideBar .top{
+	border: 1px solid #ddd;
+	font-size: 12px;
+}
+#sideBar .top li{
+	padding-top: 30px;
+	margin: 10px 0;		/*上下 margin 会重叠*/
+}
+#sideBar .top li:nth-child(1){
+	background: url(../images/ico_11.gif) no-repeat top center;
+}
+#sideBar .top li:nth-child(2){
+	background: url(../images/ico_12.gif) no-repeat top center;
+}
+#sideBar .top li:nth-child(3){
+	background: url(../images/ico_13.gif) no-repeat top center;
+}
+#sideBar .back{
+	display: block;
+	height: 45px;
+	color: #fff;
+	padding-top: 20px;
+	box-sizing: border-box;		/*怪异盒模型，盒子的宽高包含边框以及 padding*/
+	background: #999 url(../images/ico_14.gif) center 8px no-repeat;
+}
+#sideBar .back:hover{
+	background-color: #B4A078;		/*这里不能直接写 background: #B4A078; ，因为这样的话会把上面的 background 覆盖*/
+}
+
+
+/*显示下载 APP 悬浮弹出框*/
+#sideBar li:nth-child(2):hover #app{
+	display: block;
+}
+
+/*下载 APP 悬浮弹出框*/
+#sideBar #app{
+	display: none;		/*初始隐藏*/
+	width: 180px;
+	height: 162px;
+	box-shadow: 0 3px 5px #888888;
+	background: #FFFFFF;
+	font-size: 12px;
+	padding: 10px;
+	position: absolute;
+	right: 80px;
+	top: 0px;
+	z-index: 4;
+}
+#sideBar #app .appTop{
+	color: #be4141;
+	padding-bottom: 10px;
+	font-size: 0;
+}
+#sideBar #app p{
+	font-size: 16px;
+}
+#sideBar #app .appTop span{
+	font-size: 40px;
+}
+#sideBar #app .appTop p.tLeft{		/*只需要将 class 为 tLeft 的 p 标签转为 inline-block，另一个 p 标签不需要转换，用于使文字换行*/
+	width: 120px;
+	display: inline-block;
+	text-align: left;
+}
+#sideBar #app .appTop div.tRight{
+	width: 60px;
+	display: inline-block;
+	text-align: left;
+}
+#sideBar #app .appTop div.tRight strong{
+	font-size: 12px;
+	display: inline-block;
+	padding: 0 5px;
+	background: #f8bc59;
+}
+
+#sideBar #app .appBottom img{
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+}
+#sideBar #app .appBottom p{
+	width: 75px;
+	display: inline-block;
+	vertical-align: middle;
+}
+#sideBar #app .appBottom span{
+	font-size: 12px;
+}
+
+/*小三角符号、小三角图标，纯 CSS 实现*/
+#sideBar #app:before,#sideBar #app:after{
+	width: 0px;
+	height: 0px;
+	border: 10px solid transparent;
+	border-left-color: #999999;
+	content: '';
+	display: block;
+	position: absolute;		/*通过定位的方式改变小图案的位置*/
+	margin: auto;		/*居中的一种方法，margin 值设为 auto，定位置设置为 0*/
+	top: 0;
+	bottom: 0;
+	right: -21px;
+}
+#sideBar #app:after{
+	border-left-color: #FFFFFF;
+	right: -20px;		/*通过设置两种颜色小三角符号的不同位置来实现边框效果*/
+}
+
+
+/*----------面包屑----------*/
+#position{
+	width: 1090px;
+	margin: 0 auto;
+	line-height: 60px;
+	font-size: 12px;
+	color: #999;
+}
+#position a:hover{
+	text-decoration: underline;
+	color: #333;
+}
+
+
+/*----------轮播图小圆点----------*/
+.circle{
+	height: 30px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+}
+.circle span{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background: #fff;
+	border-radius: 50%;
+	margin: 0 10px;
+	border: 1px solid #d6d5d5;
+	cursor: pointer;
+}
+.circle span.active,.circle span:hover{
+	background: #a7936e;
+	width: 4px;
+	height: 4px;
+	border: 3px solid #dfcead;
+	transform: scale(2);
+}
+
+
+/*----------轮播图左右按钮----------*/
+.prev,.next{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	background: #d0c4af;
+	color: #fff;
+	font: 40px/45px "微软雅黑";
+	/*font-size: 40px;
+	line-height:55px;*/
+	/*overflow: hidden;*/
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	margin-top: -25px;
+	cursor: pointer;
+	-webkit-user-select: none;		/*双击的时候不会选中*/
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.prev:hover,.next:hover{
+	background: #B19E7A!important;		/*按钮点击后会通过 JS 设置样式（行间样式），会将 hover 覆盖，通过添加 !important 提升为最高优先级，使 hover 状态不被覆盖*/
+}
+.prev{
+	left: 10%;		/*定位置设置为百分比时，位置会相对窗口大小进行变化*/
+}
+.next{
+	right: 10%;
+}
